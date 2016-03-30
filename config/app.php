@@ -159,6 +159,11 @@ return [
 
         //Dingo service provider
         Dingo\Api\Provider\LaravelServiceProvider::class,
+        // jwt provider
+        Tymon\JWTAuth\Providers\JWTAuthServiceProvider::class,
+        //Tymon\JWTAuth\Providers\LaravelServiceProvider::class,
+        Chrisbjr\ApiGuard\Providers\ApiGuardServiceProvider::class,
+
 
     ],
 
@@ -207,6 +212,10 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
+        'JWTAuth'=>Tymon\JWTAuth\Facades\JWTAuth::class,
+        'JWTFactory'=> Tymon\JWTAuth\Facades\JWTFactory::class,
+        'ApiGuardAuth' => \Chrisbjr\ApiGuard\Facades\ApiGuardAuth::class,
+
 
     ],
 
