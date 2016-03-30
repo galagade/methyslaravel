@@ -35,5 +35,13 @@ Route::group(['middleware' => 'web'], function () {
 });
 
 $api->version('v1', function($api){
-	$api->get('hello', '\App\Http\Controllers\ApiController@index');
+	
+	$api->post('auth', '\App\Http\Controllers\ApiController@authenticate');
 });
+$api->version('v1',['middleware'=> 'api.auth'], function($api){
+	$api->get('user', '\App\Http\Controllers\ApiController@index');
+	$api->get('users', '\App\Http\Controllers\ApiController@show');
+	$api->get('token', '\App\Http\Controllers\ApiController@getToken');
+});
+
+
